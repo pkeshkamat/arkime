@@ -1169,6 +1169,9 @@ function termOrTermsFloat (dbField, str) {
   } else {
     str = stripQuotes(str);
     let match;
+    if (str.length > 300){
+      throw str + 'is too long';
+    }
     if (str.match(/^-?\d+$/) || str.match(/^-?\d+\.\d+$/)) {
       // good non range
     } else if ((match = str.match(/(-?\d*\.?\d*)-(-?\d*\.?\d*)/))) {
