@@ -428,7 +428,7 @@ class ItemSMTPStream extends ItemTransform {
           if ((matches = mime.line.match(/filename\s*=\s*("?)([^"]*)\1/))) {
             bodyName = matches[2];
           }
-        } else if (mime.line.match(/content-transfer-encoding:.*base64/i)) {
+        } else if (mime.line.match(/content-transfer-encoding:(^-)*base64/i)) {
           mime.base64 = 1;
           mime.doit = 1;
         }
